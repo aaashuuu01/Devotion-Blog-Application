@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Krishna Devotion</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f9ff; /* Light sky blue background */
+            background-image: linear-gradient(to bottom right, #f0f9ff, #cce7ff); /* Soft gradient */
+            color: #333; /* Dark text color for contrast */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header styling */
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 20px 0;
+            color: #4a4a4a; /* Dark gray for heading */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            animation: textGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Paragraph styling */
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #555; /* Medium gray for paragraphs */
+            margin: 10px;
+        }
+
+        /* Back to home link styling */
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #4a90e2; /* Button color */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        a:hover {
+            transform: translateY(-3px);
+            background-color: #5a9bd3; /* Darker button color on hover */
+        }
+
+        /* Keyframe animations */
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #66a3ff, 0 0 30px #66a3ff;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #66a3ff, 0 0 40px #66a3ff;
+            }
+        }
+
+        /* Card styling for blog posts */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: perspective(1000px);
+            transition: transform 0.5s;
+        }
+
+        .card:hover {
+            transform: perspective(1000px) rotateY(5deg) rotateX(5deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Posts list styling */
+        .posts-list {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .post-item {
+            margin: 20px 0;
+            background: #ffffff; /* White background for posts */
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-item h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #4a4a4a; /* Dark gray for post titles */
+        }
+
+        .post-item p {
+            color: #666; /* Darker gray for post content */
+        }
+
+        .post-item .author {
+            font-style: italic;
+            color: #4a90e2; /* Blue for author name */
+            margin: 10px 0;
+        }
+
+        /* Bhagavad Gita Shlokas styling */
+        .gita-shlokas {
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .gita-shlokas h2 {
+            font-size: 2em;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        .shloka {
+            font-size: 1.5em;
+            color: #4a90e2;
+            margin: 10px 0;
+        }
+
+        .shloka-meaning {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        /* Button to create a new post */
+        .create-post-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4a90e2; /* Button color */
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .create-post-btn:hover {
+            background-color: #5a9bd3; /* Darker button color on hover */
+        }
+
+        /* Share Your Devotion section */
+        .share-devotion {
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .share-devotion h2 {
+            font-size: 2em;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        /* Characters section styling */
+        .characters {
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .character-item {
+            font-size: 1.5em;
+            color: #4a4a4a;
+            margin: 10px 0;
+        }
+
+        .character-description {
+            color: #666;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blog Page</h1>
+
+    <!-- Blog Posts List -->
+    <div class="posts-list">
+        <h2>Recent Posts</h2>
+        {% if latest_posts %}
+            {% for post in latest_posts %}
+                <div class="post-item">
+                    <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+                    <p class="author">By {{ post.author }}</p>
+                    <p>Posted on {{ post.created_at|date:"F j, Y, h:i A" }}</p>
+                    <p>{{ post.excerpt }}</p> <!-- Assuming you have an excerpt field -->
+                    <a href="{% url 'post_detail' post.id %}">Read more...</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No recent posts available.</p>
+        {% endif %}
+    </div>
+
+    <!-- Bhagavad Gita Shlokas Section -->
+    <div class="gita-shlokas">
+        <h2>Wisdom from the Bhagavad Gita</h2>
+        <p class="shloka">श्लोक 2.47: <br> कर्मण्येवाधिकारस्ते मा फलेषु कदाचन। <br> मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</p>
+        <p class="shloka-meaning"><strong>Meaning:</strong> You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions...</p>
+    </div>
+
+    <!-- Characters from Bhagavad Gita Section -->
+    <div class="characters">
+        <h2>Characters from the Bhagavad Gita</h2>
+        <div class="character-item">1. Lord Krishna</div>
+        <p class="character-description">The Supreme Being who imparts wisdom to Arjuna during the Kurukshetra war.</p>
+        <div class="character-item">2. Arjuna</div>
+        <p class="character-description">A skilled warrior and the prince of the Pandavas, facing a moral dilemma in battle.</p>
+        <div class="character-item">3. Bhishma</div>
+        <p class="character-description">The granduncle of the Pandavas and Kauravas, renowned for his vow of celibacy.</p>
+        <div class="character-item">4. Drona</div>
+        <p class="character-description">The royal teacher of the Kauravas and Pandavas, expert in military arts.</p>
+        <div class="character-item">5. Sanjaya</div>
+        <p class="character-description">The charioteer of Dhritarashtra, narrating the events of the battle to him.</p>
+    </div>
+
+    <!-- Share Your Devotion Section -->
+    <div class="share-devotion">
+        <h2>Share Your Devotion</h2>
+        <p>We invite you to share your own experiences and thoughts on devotion to Lord Krishna.</p>
+        <a href="{% url 'create_post' %}" class="create-post-btn">Share Your Story</a>
+    </div>
+
+    <a href="{% url 'home' %}">Back to Home</a>
+
+    <script>
+        function submitPost() {
+            alert('Post submitted! (Functionality to be implemented)');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Blue gradient background */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Styling for the main heading */
+        h1 {
+            color: #fff;
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4); /* Text shadow for depth */
+        }
+
+        /* Styling for the content */
+        p {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 20px auto;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Styling for the tags list */
+        h2 {
+            margin-top: 30px;
+            color: #fff;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        ul li {
+            display: inline-block;
+            background-color: #3b82f6; /* Blue button-like tags */
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Tag hover effect */
+        ul li:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button styling for links */
+        a {
+            display: inline-block;
+            background-color: #4ade80; /* Green button */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-size: 1.2em;
+        }
+
+        /* Hover effect for buttons */
+        a:hover {
+            background-color: #22c55e; /* Darker green on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px); /* Slight lift on hover */
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            p {
+                font-size: 1.1em;
+            }
+
+            ul li {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+
+            a {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+
+    <!-- Check if the post has an image, then display it -->
+    {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto;">
+    {% endif %}
+
+    <h2>Tags:</h2>
+    <ul>
+        {% for tag in post.tags.all %}
+            <li>{{ tag.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'create_post' %}">Create New Post</a>
+    <a href="{% url 'edit_post' post.pk %}">Edit Post</a>
+    <a href="{% url 'delete_post' post.pk %}">Delete Post</a>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

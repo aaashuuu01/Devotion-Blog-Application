@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f9ff; /* Light background */
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Full height for footer placement */
+        }
+
+        h1 {
+            color: #333; /* Dark text color */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em; /* Increased font size */
+        }
+
+        form {
+            text-align: center; /* Center align the search form */
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 2px solid #4a90e2;
+            border-radius: 25px; /* More rounded corners */
+            margin-right: 5px;
+            width: 250px;
+            transition: all 0.3s; /* Transition for effects */
+        }
+
+        input[type="text"]:focus {
+            border-color: #66a3ff; /* Change border color on focus */
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.5); /* Shadow effect */
+            outline: none; /* Remove outline */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4a90e2; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 25px; /* More rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
+        }
+
+        button:hover {
+            background-color: #66a3ff; /* Change button color on hover */
+            transform: translateY(-3px); /* Lift effect */
+        }
+
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+            max-width: 800px; /* Limit width of posts list */
+            margin: 0 auto; /* Center align */
+            flex-grow: 1; /* Allow the list to grow */
+        }
+
+        li {
+            margin-bottom: 20px; /* Space between posts */
+            padding: 20px;
+            border: 1px solid #ddd; /* Light border around each post */
+            border-radius: 10px; /* Rounded corners */
+            background-color: white; /* White background for posts */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            transition: transform 0.2s; /* Transition for hover effect */
+        }
+
+        li:hover {
+            transform: translateY(-3px); /* Lift effect on hover */
+        }
+
+        footer {
+            text-align: center; /* Center align footer content */
+            padding: 20px;
+            background-color: #e3f2fd; /* Light footer background */
+            border-top: 1px solid #ddd; /* Top border */
+            position: relative;
+            bottom: 0;
+            width: 100%; /* Full width */
+        }
+
+        .share-button,
+        .logout-button {
+            display: inline-block;
+            margin: 10px; /* Space between buttons */
+            padding: 10px 20px;
+            border-radius: 25px; /* More rounded corners */
+            color: white;
+            text-decoration: none; /* Remove underline from the link */
+            transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
+        }
+
+        .share-button {
+            background-color: #4caf50; /* Green color for share button */
+        }
+
+        .share-button:hover {
+            background-color: #5cb85c; /* Darker green on hover */
+            transform: translateY(-3px); /* Lift effect */
+        }
+
+        .logout-button {
+            background-color: #e74c3c; /* Red color for logout */
+        }
+
+        .logout-button:hover {
+            background-color: #c0392b; /* Darker red on hover */
+            transform: translateY(-3px); /* Lift effect */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}!</h1>
+    
+    <form method="get">
+        <input type="text" name="search" placeholder="Search posts" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+            </li>
+        {% empty %}
+            <p>No posts found.</p>
+        {% endfor %}
+    </ul>
+
+    <footer>
+        <a href="{% url 'create_post' %}" class="share-button">Share Your Devotion</a>
+        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+    </footer>
+</body>
+</html>

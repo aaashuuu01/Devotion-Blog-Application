@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Krishna Devotion</title>
+    <style>
+        /* Import a custom font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        /* General body styling */
+        body {
+            font-family: 'Roboto', sans-serif; /* Change to Roboto font */
+            background-color: #e3f2fd; /* Light blue background */
+            background-image: linear-gradient(to bottom right, #e3f2fd, #bbdefb); /* Soft gradient */
+            color: #333; /* Dark text color for contrast */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header styling */
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 20px 0;
+            color: #4a4a4a; /* Dark gray for heading */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            animation: textGlow 1.5s ease-in-out infinite alternate;
+            font-weight: 700; /* Bold */
+        }
+
+        /* Paragraph styling */
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #555; /* Medium gray for paragraphs */
+            margin: 10px;
+            padding: 0 20px;
+            font-weight: 400; /* Regular */
+        }
+
+        /* About section styling */
+        .about-section {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Keyframe animations */
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #66a3ff, 0 0 30px #66a3ff;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #66a3ff, 0 0 40px #66a3ff;
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Button styling */
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4a90e2; /* Button color */
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #5a9bd3; /* Darker button color on hover */
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <h1>About Krishna Devotion Blog</h1>
+    
+    <div class="about-section">
+        <p><strong>Welcome to the Krishna Devotion Blog, a space dedicated to spreading love, motivation, and the divine teachings of Lord Krishna.</strong> Our mission is to inspire individuals to embrace the teachings of the Bhagavad Gita and lead a life filled with devotion and compassion.</p>
+        
+        <p><strong>Through our blog posts, we aim to share insights, stories, and resources that help you connect with your inner self and the teachings of Krishna.</strong> Join us on this spiritual journey and discover the wisdom that can transform your life.</p>
+        
+        <p><strong>Let's spread love and positivity together!</strong></p>
+    </div>
+
+    <a href="{% url 'home' %}" class="back-button">Back to Home</a>
+</body>
+</html>

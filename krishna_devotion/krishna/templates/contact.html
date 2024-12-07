@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Krishna Devotion</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd; /* Light blue background */
+            background-image: linear-gradient(to bottom right, #e3f2fd, #bbdefb); /* Soft gradient */
+            color: #333; /* Dark text color for contrast */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header styling */
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 20px 0;
+            color: #4a4a4a; /* Dark gray for heading */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            animation: textGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Paragraph styling */
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #555; /* Medium gray for paragraphs */
+            margin: 10px;
+        }
+
+        /* Donation section styling */
+        .donation-section {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Keyframe animations */
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #66a3ff, 0 0 30px #66a3ff;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #66a3ff, 0 0 40px #66a3ff;
+            }
+        }
+
+        /* Contact information styling */
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .contact-info a {
+            color: #4a90e2; /* Link color */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #5a9bd3; /* Darker link color on hover */
+        }
+
+        /* Donation button styling */
+        .donate-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4a90e2; /* Button color */
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .donate-button:hover {
+            background-color: #5a9bd3; /* Darker button color on hover */
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Support Our Cause</h1>
+    <p>We invite you to contribute to our efforts in spreading the teachings of the Bhagavad Gita.</p>
+    
+    <div class="donation-section">
+        <h2>Support Bhagavad Gita Distribution</h2>
+        <p>Help us share the wisdom of the Bhagavad Gita with those who seek guidance and spiritual growth. Your support is invaluable.</p>
+        <a href="https://www.example.com/donate-bhagavad-gita" class="donate-button">Donate Now for Bhagavad Gita</a>
+    </div>
+
+    <div class="contact-info">
+        <p>If you prefer, you can reach out to us directly:</p>
+        <p>Mobile: <a href="tel:6204285205">6204285205</a></p>
+        <p>Email: <a href="mailto:ashutoshmmu750@gmail.com">ashutoshmmu750@gmail.com</a></p>
+    </div>
+
+    <a href="{% url 'home' %}" style="display: block; text-align: center; margin-top: 20px;">Back to Home</a>
+</body>
+</html>
